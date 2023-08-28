@@ -4,12 +4,9 @@ import java.util.Arrays;
 import java.util.Map;
 
 
+import com.zyj.gulimall.member.feign.CouponFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.zyj.gulimall.member.entity.MemberEntity;
 import com.zyj.gulimall.member.service.MemberService;
@@ -30,6 +27,17 @@ import com.zyj.common.utils.R;
 public class MemberController {
     @Autowired
     private MemberService memberService;
+
+    @Autowired
+    private CouponFeignService couponFeignService;
+
+    @GetMapping("/hello")
+    public R find(){
+        MemberEntity memberEntity = new MemberEntity();
+        memberEntity.setNickname("张三");
+        R list = couponFeignService.couponList();
+        return R.ok().put("coupon",list).put("member",memberEntity);
+    }
 
     /**
      * 列表

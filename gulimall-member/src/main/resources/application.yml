@@ -4,6 +4,12 @@ spring:
     username: root
     password: zyj020402
     url: jdbc:mysql://hadoop103:3306/gulimall_ums
+  application:
+    name: gulimall-member
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml

@@ -16,6 +16,7 @@ import com.zyj.gulimall.product.service.BrandService;
 import com.zyj.common.utils.PageUtils;
 import com.zyj.common.utils.R;
 
+import javax.validation.Valid;
 
 
 /**
@@ -56,7 +57,7 @@ public class BrandController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@RequestBody BrandEntity brand){
+    public R save(@Valid @RequestBody BrandEntity brand){
 		brandService.save(brand);
 
         return R.ok();

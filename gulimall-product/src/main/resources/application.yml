@@ -4,6 +4,12 @@ spring:
     username: root
     password: zyj020402
     url: jdbc:mysql://hadoop103:3306/gulimall_pms
+  application:
+    name: gulimall-product
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
@@ -14,4 +20,4 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 server:
-  port: 10000
+  port: 10001
